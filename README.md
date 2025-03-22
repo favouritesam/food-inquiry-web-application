@@ -1,1 +1,1 @@
-# -food-inquiry-web-application
+# food-inquiry-web-application
