@@ -25,4 +25,3 @@ export default function RestaurantAnimation() {
 
     return <Box ref={container} w="full" h="64" />
 }
-
