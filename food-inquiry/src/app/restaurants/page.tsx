@@ -14,7 +14,7 @@ export default function RestaurantsPage() {
                     Discover delicious dining options in your area with our restaurant finder
                 </Text>
             </Container>
-            <Box mt='-10%'><RestaurantFinder /></Box>
+            <Box mt='-8%'><RestaurantFinder /></Box>
         </Box>
     )
 }

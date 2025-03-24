@@ -125,7 +125,7 @@ export default function RestaurantFinder() {
                     <Text fontSize="lg" color="purple.800" mb={6}>
                         Allow access to your location to find restaurants near you
                     </Text>
-                    <Button onClick={getLocation} colorScheme="purple" size="lg" leftIcon={<MapPin size={20} />}>
+                    <Button onClick={getLocation} mt='-2%' colorScheme="purple" size="lg" leftIcon={<MapPin size={20} />}>
                         Find Nearby Restaurants
                     </Button>
                 </VStack>

@@ -8,7 +8,7 @@ import FoodAnimation from "@/components/containers/food-animation";
 export default function Home() {
   return (
       <Box as="main" minH="100vh" bgGradient="linear(to-b, purple.50, white)">
-        <Container maxW="container.xl" px={4} py='10%'>
+        <Container maxW="container.xl" px={4} py='6%'>
           <VStack spacing={8} textAlign="center">
             <Heading as="h1" size={{ base: "xl", md: "2xl" }} color="purple.800" mt={{ base: "16", md: "0" }}>
               Find Your Perfect Recipe
@@ -22,11 +22,11 @@ export default function Home() {
               <RecipeSearch />
             </Box>
 
-            <Box w="full" maxW="lg">
+            <Box w="full" maxW="lg" mt='-2%'>
               <FoodAnimation />
             </Box>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="full" maxW="4xl" mt='-16%'>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} w="full" maxW="4xl">
               <Link href="/recipes" passHref>
                 <Flex
                     direction="column"
