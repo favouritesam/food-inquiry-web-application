@@ -18,6 +18,11 @@ export default function RecipeList({ searchQuery }: { searchQuery: string }) {
     const [error, setError] = useState("")
 
     useEffect(() => {
+        if (!searchQuery) {
+            setError("Invalid searchQuery")
+            setLoading(false)
+            return
+        }
         const fetchRecipes = async () => {
             setLoading(true)
             try {
