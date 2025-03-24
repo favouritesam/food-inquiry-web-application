@@ -38,6 +38,12 @@ export default function RecipeDetail({ id }: { id: string }) {
     const [error, setError] = useState("")
 
     useEffect(() => {
+        if (!id) {
+            setError("Invalid recipe ID")
+            setLoading(false)
+            return
+        }
+
         const fetchRecipe = async () => {
             setLoading(true)
             try {
