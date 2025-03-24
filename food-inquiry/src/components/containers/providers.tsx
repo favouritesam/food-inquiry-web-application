@@ -5,13 +5,11 @@ import type React from "react"
 import { CacheProvider } from "@chakra-ui/next-js"
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 
-// Define the color mode config
 const config = {
     initialColorMode: "light",
     useSystemColorMode: false,
 }
 
-// Extend the theme with custom colors
 const theme = extendTheme({
     config,
     colors: {
