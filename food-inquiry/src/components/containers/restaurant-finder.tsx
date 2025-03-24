@@ -55,26 +55,34 @@ export default function RestaurantFinder() {
 
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                console.log("User's location:", position.coords);
+                console.log("✅ User's location:", position.coords);
                 setLocationStatus("success");
                 fetchNearbyRestaurants();
             },
             (error) => {
-                console.error("Geolocation error:", error);
-                if (error.code === 1) {
-                    setError("Location permission denied. Please enable location access in your settings.");
-                } else if (error.code === 2) {
-                    setError("Location unavailable. Please ensure GPS is enabled.");
-                } else if (error.code === 3) {
-                    setError("Location request timed out. Try moving to an open area.");
-                } else {
-                    setError("Unable to retrieve your location. Please try again.");
+                console.error("❌ Geolocation error:", error);
+                let message = "Unable to retrieve your location. Please try again.";
+
+                switch (error.code) {
+                    case 1:
+                        message = "❌ Location permission denied. Enable location in browser settings.";
+                        break;
+                    case 2:
+                        message = "⚠️ Location unavailable. Ensure GPS is enabled.";
+                        break;
+                    case 3:
+                        message = "⏳ Location request timed out. Try moving to an open area.";
+                        break;
                 }
+
+                alert(message);  // Show error alert
+                setError(message);
                 setLocationStatus("error");
             },
             { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
         );
     };
+
 
     const fetchNearbyRestaurants = async () => {
         setLoading(true)
