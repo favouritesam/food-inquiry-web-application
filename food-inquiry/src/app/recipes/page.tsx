@@ -4,11 +4,7 @@ import RecipeSearch from "@/components/containers/recipe-search";
 import RecipeList from "@/components/containers/recipe-list";
 
 
-export default function RecipesPage({
-                                        searchParams,
-                                    }: {
-    searchParams: { search?: string }
-}) {
+export default function RecipesPage({searchParams,}: { searchParams: { search?: string } }) {
     const query = searchParams.search || ""
 
     return (
