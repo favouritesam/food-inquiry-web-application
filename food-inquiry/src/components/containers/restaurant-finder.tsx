@@ -21,26 +21,60 @@ export default function RestaurantFinder() {
     const [locationStatus, setLocationStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
     const [error, setError] = useState("")
 
+    // const getLocation = () => {
+    //     setLocationStatus("loading")
+    //     setError("")
+    //
+    //     if (!navigator.geolocation) {
+    //         setError("Geolocation is not supported by your browser")
+    //         setLocationStatus("error")
+    //         return
+    //     }
+    //
+    //     navigator.geolocation.getCurrentPosition(() => {
+    //             setLocationStatus("success")
+    //             fetchNearbyRestaurants()
+    //         },
+    //         () => {
+    //             setError("Unable to retrieve your location")
+    //             setLocationStatus("error")
+    //         },
+    //     )
+    // }
+
+
     const getLocation = () => {
-        setLocationStatus("loading")
-        setError("")
+        setLocationStatus("loading");
+        setError("");
 
         if (!navigator.geolocation) {
-            setError("Geolocation is not supported by your browser")
-            setLocationStatus("error")
-            return
+            setError("Geolocation is not supported by your browser.");
+            setLocationStatus("error");
+            return;
         }
 
-        navigator.geolocation.getCurrentPosition(() => {
-                setLocationStatus("success")
-                fetchNearbyRestaurants()
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                console.log("User's location:", position.coords);
+                setLocationStatus("success");
+                fetchNearbyRestaurants();
             },
-            () => {
-                setError("Unable to retrieve your location")
-                setLocationStatus("error")
+            (error) => {
+                console.error("Geolocation error:", error);
+                if (error.code === 1) {
+                    setError("Location permission denied. Please enable location access in your settings.");
+                } else if (error.code === 2) {
+                    setError("Location unavailable. Please ensure GPS is enabled.");
+                } else if (error.code === 3) {
+                    setError("Location request timed out. Try moving to an open area.");
+                } else {
+                    setError("Unable to retrieve your location. Please try again.");
+                }
+                setLocationStatus("error");
             },
-        )
-    }
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+        );
+    };
 
     const fetchNearbyRestaurants = async () => {
         setLoading(true)
