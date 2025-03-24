@@ -17,9 +17,7 @@ export default function RecipesPage() {
                     {query ? `Recipes for "${query}"` : "Browse Recipes"}
                 </Heading>
 
-                <Box w="full" maxW="md" mx="auto" mb={12}>
-                    <RecipeSearch />
-                </Box>
+                <Box w="full" maxW="md" mx="auto" mb={12}><RecipeSearch /></Box>
 
                 <Suspense
                     fallback={
