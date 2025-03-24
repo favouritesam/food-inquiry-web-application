@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { Box, Container, Heading, Text, SimpleGrid, Flex, VStack } from "@chakra-ui/react"
 import { Search } from "lucide-react"

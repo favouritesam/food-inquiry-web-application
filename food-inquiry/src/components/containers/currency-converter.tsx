@@ -56,7 +56,8 @@ export default function CurrencyConverter({ amountInNaira }: CurrencyConverterPr
 
     return (
         <>
-            <Button variant="outline" colorScheme="purple" leftIcon={<DollarSign size={16} />} onClick={handleOpen}>
+            <Button variant="outline" colorScheme="purple" leftIcon={<DollarSign size={16} />}
+                    onClick={handleOpen}>
                 Click to see USD
             </Button>
 
