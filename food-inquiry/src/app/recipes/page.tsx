@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { Box, Container, Heading, Flex, Spinner } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
 import RecipeSearch from "@/components/containers/recipe-search";
-// import RecipeList from "@/components/containers/recipe-list";
 import dynamic from "next/dynamic";
 
 const RecipeList = dynamic(() => import("@/components/containers/recipe-list"), { ssr: false });

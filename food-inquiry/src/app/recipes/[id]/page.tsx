@@ -4,7 +4,6 @@ import { Box, Container, Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useParams } from "next/navigation";
-// import RecipeDetail from "@/components/containers/recipe-detail";
 import dynamic from "next/dynamic";
 const RecipeDetail = dynamic(() => import("@/components/containers/recipe-detail"), { ssr: false });
 
