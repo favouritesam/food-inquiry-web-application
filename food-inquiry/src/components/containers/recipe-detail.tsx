@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react"
 import { Clock, Users, Info } from "lucide-react"
 import CurrencyConverter from "@/components/containers/currency-converter";
+import {useRouter} from "next/navigation";
 
 interface Recipe {
     id: string
@@ -36,6 +37,8 @@ export default function RecipeDetail({ id }: { id: string }) {
     const [recipe, setRecipe] = useState<Recipe | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
+    const router = useRouter();
+
 
     useEffect(() => {
         if (!id) {
@@ -123,7 +126,10 @@ export default function RecipeDetail({ id }: { id: string }) {
         return (
             <VStack spacing={4} py={20} textAlign="center">
                 <Text color="red.500">{error || "Recipe not found"}</Text>
-                <Button onClick={() => window.location.reload()} colorScheme="purple">
+                {/*<Button onClick={() => window.location.reload()} colorScheme="purple">*/}
+                {/*    Try Again*/}
+                {/*</Button>*/}
+                <Button onClick={() => router.refresh()} colorScheme="purple">
                     Try Again
                 </Button>
             </VStack>
