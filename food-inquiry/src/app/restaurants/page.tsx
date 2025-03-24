@@ -1,6 +1,9 @@
 "use client"
 import { Box, Container, Heading, Text } from "@chakra-ui/react"
-import RestaurantFinder from "@/components/containers/restaurant-finder";
+import dynamic from "next/dynamic";
+// import RestaurantFinder from "@/components/containers/restaurant-finder";
+const RestaurantFinder = dynamic(() => import("@/components/containers/restaurant-finder"), { ssr: false });
+
 
 
 export default function RestaurantsPage() {

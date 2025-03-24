@@ -2,8 +2,14 @@
 import Link from "next/link"
 import { Box, Container, Heading, Text, SimpleGrid, Flex, VStack } from "@chakra-ui/react"
 import { Search } from "lucide-react"
-import RecipeSearch from "@/components/containers/recipe-search";
-import FoodAnimation from "@/components/containers/food-animation";
+import dynamic from "next/dynamic";
+
+// import RecipeSearch from "@/components/containers/recipe-search";
+// import FoodAnimation from "@/components/containers/food-animation";
+// Dynamically import with SSR disabled
+
+const RecipeSearch = dynamic(() => import("@/components/containers/recipe-search"), { ssr: false });
+const FoodAnimation = dynamic(() => import("@/components/containers/food-animation"), { ssr: false });
 
 
 export default function Home() {
