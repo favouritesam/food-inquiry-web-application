@@ -1,1 +1,0 @@
-# food-inquiry-web-application
