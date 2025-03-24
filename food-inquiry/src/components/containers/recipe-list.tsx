@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { SimpleGrid, Box, Heading, Text, Button, Flex, Spinner, Image, VStack } from "@chakra-ui/react"
+import {useRouter} from "next/navigation";
+
 
 interface Recipe {
     id: string
@@ -16,13 +18,9 @@ export default function RecipeList({ searchQuery }: { searchQuery: string }) {
     const [recipes, setRecipes] = useState<Recipe[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
+    const router = useRouter();
 
     useEffect(() => {
-        if (!searchQuery) {
-            setError("Invalid searchQuery")
-            setLoading(false)
-            return
-        }
         const fetchRecipes = async () => {
             setLoading(true)
             try {
@@ -105,7 +103,11 @@ export default function RecipeList({ searchQuery }: { searchQuery: string }) {
         return (
             <VStack spacing={4} py={20} textAlign="center">
                 <Text color="red.500">{error}</Text>
-                <Button onClick={() => window.location.reload()} colorScheme="purple">
+                {/*<Button onClick={() => window.location.reload()} colorScheme="purple">*/}
+                {/*    Try Again*/}
+                {/*</Button>*/}
+
+                <Button onClick={() => router.refresh()} colorScheme="purple">
                     Try Again
                 </Button>
             </VStack>
